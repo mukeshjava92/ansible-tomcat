@@ -1,0 +1,17 @@
+---
+- hosts: Webservers
+  become: True
+  tasks:
+      - name: Httpd installation
+        yum:
+           name: "httpd"
+           state: "present"
+      - name: htttpd service start
+        service:
+           name: "httpd"
+           state: "started"
+           enabled: True
+      - name: Deploy static web site
+        copy: 
+           src:  index.html
+           dest: /var/www/html/
