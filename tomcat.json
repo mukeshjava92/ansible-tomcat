@@ -1,5 +1,5 @@
 ---
-- hosts: Webservers
+- hosts: webservers
   become: True
   tasks:
       - name: Httpd installation
